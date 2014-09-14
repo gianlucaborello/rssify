@@ -41,6 +41,11 @@
             <artifactId>jsoup</artifactId>
             <version>1.7.3</version>
         </dependency>
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>

@@ -15,29 +15,21 @@ import java.util.logging.Logger;
 /**
  * Created by gianluca on 9/13/14.
  */
-public class HNFetcher implements SourceFetcher {
+public class BogleHeadsFetcher implements SourceFetcher {
     private static final Logger log = Logger.getLogger(HNFetcher.class.getName());
-
-    private boolean askHN;
     private int minComments;
 
-    public HNFetcher(int minComments, boolean askHN) {
+    public BogleHeadsFetcher(int minComments) {
         this.minComments = minComments;
-        this.askHN = askHN;
     }
 
     @Override
     public List<SourceItem> fetchItems() throws IOException {
-        String url;
-        if (askHN) {
-            url = "http://news.ycombinator.com/ask";
-        } else {
-            url = "http://news.ycombinator.com";
-        }
+        String url = "http://www.bogleheads.org/";
 
         Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select(".title a:not([rel])");
-        Elements comments = doc.select(".subtext a:matches(comment|discuss)");
+        Elements articles = doc.select("#table_content a[href*=viewtopic]:lt(1)");
+        Elements comments = doc.select("#table_content td[align*=right]:lt(1)");
         if (articles.size() != comments.size()) {
             log.severe("Got " + articles.size() + " articles and " + comments.size() + " comments");
             return null;
@@ -49,26 +41,15 @@ public class HNFetcher implements SourceFetcher {
 
         for (int j = 0; j < comments.size(); ++j) {
             Element comment = comments.get(j);
-            if (comment.text().contains("discuss")) {
-                continue;
-            }
-
-            int numComments = Integer.parseInt(comment.text().split(" ")[0]);
+            int numComments = Integer.parseInt(comment.text());
             if (numComments < minComments) {
                 continue;
             }
 
             Element article = articles.get(j);
 
-            String link;
-            if (askHN) {
-                link = "http://news.ycombinator.com/" + article.attr("href");
-            } else {
-                link = article.attr("href");
-            }
-
-            String body = "<a href=\"http://news.ycombinator.com/" + comment.attr("href") + "\">" + comment.text() + "</a>";
-            SourceItem sourceItem = new SourceItem(link,
+            String body = numComments + " comments";
+            SourceItem sourceItem = new SourceItem(article.attr("href"),
                     article.text(), body);
 
             sourceItems.add(sourceItem);

@@ -6,6 +6,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>rss</servlet-name>
-        <url-pattern>/rss</url-pattern>
+        <url-pattern>/rss/*</url-pattern>
     </servlet-mapping>
 </web-app>
