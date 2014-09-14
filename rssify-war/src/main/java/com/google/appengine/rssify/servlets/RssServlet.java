@@ -1,8 +1,10 @@
 package com.google.appengine.rssify.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.rssify.fetchers.Configuration;
 import com.google.appengine.rssify.model.SourceConfiguration;
 import com.google.appengine.rssify.model.SourceItem;
+import com.google.appengine.rssify.services.DatabaseService;
 import com.google.appengine.rssify.utils.FeedUtils;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -24,20 +26,22 @@ public class RssServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        log.info("Received " + req.getPathInfo());
-        SourceConfiguration sourceConfiguration = Configuration.configuredServices.get(req.getPathInfo());
+        String sourceConfigurationId = req.getPathInfo();
+        log.info("Received " + sourceConfigurationId);
+        SourceConfiguration sourceConfiguration = Configuration.sourceConfigurations.get(sourceConfigurationId);
         if (sourceConfiguration == null) {
             log.severe("Wrong resource " + req.getPathInfo());
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        List<SourceItem> items = sourceConfiguration.getSourceFetcher().fetchItems();
-        SyndFeed feed = FeedUtils.createFeed(req.getPathInfo(), sourceConfiguration, items);
+        List<SourceItem> items = DatabaseService.getItems(sourceConfigurationId, 50);
+        SyndFeed feed = FeedUtils.createFeed(sourceConfigurationId, sourceConfiguration, items);
 
         SyndFeedOutput output = new SyndFeedOutput();
-
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
+
         try {
             output.output(feed, writer);
         } catch (FeedException e) {

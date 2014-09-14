@@ -3,35 +3,42 @@ rssify
 
 A simple application that I needed to avoid constantly checking my favorite news websites/forums.
 
-It automatically scrapes various web pages (currently Hacker News, Ask Hacker News and Bogleheads.org) and emits an RSS including the items that have more comments than my threshold.
+It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits an RSS including the items that have more comments than the threshold I choose.
 
 When paired with feedly and feedburner, I have a consolidated view of everything, most background noise is filtered out and if I don't log in for a few days items will still pile up so I don't lose content.
 
-The app is hosted on GAE, so in case you want to use the feeds yourself here they are:
+The app is hosted on GAE, so in case you want to use the feeds yourself (please use the feedburner ones so I can keep this running in the free tier) here they are:
 
-Website | Feed link
+Hacker News, by points | Link
 ---- | ---- 
-Hacker News (>= 10 comments) | [![HackerNews10Comments](http://feeds.feedburner.com/~fc/HackerNews10Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/HackerNews10Comments)
-Hacker News (>= 50 comments) | [![HackerNews50Comments](http://feeds.feedburner.com/~fc/HackerNews50Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/HackerNews50Comments)
-Hacker News (>= 100 comments) | [![HackerNews100Comments](http://feeds.feedburner.com/~fc/HackerNews100Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/HackerNews100Comments)
+HN items reaching 10 points | [![hn10points](http://feeds.feedburner.com/~fc/hn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10points)
+HN items reaching 50 points | [![hn50points](http://feeds.feedburner.com/~fc/hn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50points)
+HN items reaching 100 points | [![hn100points](http://feeds.feedburner.com/~fc/hn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn100points)
+Ask HN items reaching 10 points | [![askhn10points](http://feeds.feedburner.com/~fc/askhn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn10points)
+Ask HN items reaching 50 points | [![askhn50points](http://feeds.feedburner.com/~fc/askhn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn50points)
+Ask HN items reaching 100 points | [![askhn100points](http://feeds.feedburner.com/~fc/askhn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn100points)
+Show HN items reaching 10 points | [![showhn10points](http://feeds.feedburner.com/~fc/showhn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn10points)
+Show HN items reaching 50 points | [![showhn50points](http://feeds.feedburner.com/~fc/showhn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn50points)
+Show HN items reaching 100 points | [![showhn100points](http://feeds.feedburner.com/~fc/showhn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn100points)
 
-Website | Feed link
+Hacker News, by comments | link
 ---- | ---- 
-Ask Hacker News (>= 10 comments) | [![AskHackerNews10Comments](http://feeds.feedburner.com/~fc/AskHackerNews10Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/AskHackerNews10Comments)
-Ask Hacker News (>= 50 comments) | [![AskHackerNews50Comments](http://feeds.feedburner.com/~fc/AskHackerNews50Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/AskHackerNews50Comments)
-Ask Hacker News (>= 100 comments) | [![AskHackerNews100Comments](http://feeds.feedburner.com/~fc/AskHackerNews100Comments?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/AskHackerNews100Comments)
+HN items reaching 10 comments | [![hn10comments](http://feeds.feedburner.com/~fc/hn10comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10comments)
+HN items reaching 50 comments | [![hn50comments](http://feeds.feedburner.com/~fc/hn50comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50comments)
+HN items reaching 100 comments | [![hn100comments](http://feeds.feedburner.com/~fc/hn100comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn100comments)
+Ask HN items reaching 10 comments | [![askhn10comments](http://feeds.feedburner.com/~fc/askhn10comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn10comments)
+Ask HN items reaching 50 comments | [![askhn50comments](http://feeds.feedburner.com/~fc/askhn50comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn50comments)
+Ask HN items reaching 100 comments | [![askhn100comments](http://feeds.feedburner.com/~fc/askhn100comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn100comments)
+Show HN items reaching 10 comments | [![showhn10comments](http://feeds.feedburner.com/~fc/showhn10comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn10comments)
+Show HN items reaching 50 comments | [![showhn50comments](http://feeds.feedburner.com/~fc/showhn50comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn50comments)
+Show HN items reaching 100 comments | [![showhn100comments](http://feeds.feedburner.com/~fc/showhn100comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn100comments)
 
-Website | Feed link
+Bogleheads.org | Link
 ---- | ---- 
-Bogleheads.org (>= 10 comments) | [![Bogleheads10](http://feeds.feedburner.com/~fc/Bogleheads10?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/Bogleheads10)
-Bogleheads.org (>= 50 comments) | [![Bogleheads50](http://feeds.feedburner.com/~fc/Bogleheads50?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/Bogleheads50)
-Bogleheads.org (>= 100 comments) | [![Bogleheads100](http://feeds.feedburner.com/~fc/Bogleheads100?bg=99CCFF&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/Bogleheads100)
+Posts reaching 10 comments | [![bogleheads10](http://feeds.feedburner.com/~fc/bogleheads10?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads10)
+Posts reaching 50 comments | [![bogleheads50](http://feeds.feedburner.com/~fc/bogleheads50?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads50)
+Posts reaching 100 comments) | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
 
-It served as a demo project on using Java on GAE, since I've never done it before.
+It served as a demo project on using Java on GAE, since I've never done it before. Data is saved by a background worker into the NoSQL Google database, and read from there.
 
-I pulled this off in a couple hours of work so there are tons of bugs, but it works well enough for my use case.
-
-Improvements include:
-
-- Make the scraping in an asynchronous background worker. Since feedburner acts as a proxy and does all the caching, I don't really care.
-- Save items already seen in a database, so they don't accidentally pop up again
+I pulled this off in a very short time so there are tons of bugs, but it works well enough for my use case.

@@ -1,0 +1,36 @@
+package com.google.appengine.rssify.servlets;
+
+import com.google.appengine.rssify.fetchers.Configuration;
+import com.google.appengine.rssify.model.SourceConfiguration;
+import com.google.appengine.rssify.model.SourceItem;
+import com.google.appengine.rssify.services.DatabaseService;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
+
+/**
+ * Created by gianluca on 9/14/14.
+ */
+public class RefreshServlet extends HttpServlet {
+    private static final Logger log = Logger.getLogger(RefreshServlet.class.getName());
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        if (req.getHeader("X-AppEngine-Cron") == null) {
+            resp.sendError(HttpServletResponse.SC_FORBIDDEN);
+            return;
+        }
+
+        for (Map.Entry<String, SourceConfiguration> entry : Configuration.sourceConfigurations.entrySet()) {
+            log.info("Running " + entry.getKey());
+            List<SourceItem> items = entry.getValue().getSourceFetcher().fetchItems();
+
+            DatabaseService.saveItems(entry.getKey(), items);
+        }
+    }
+}

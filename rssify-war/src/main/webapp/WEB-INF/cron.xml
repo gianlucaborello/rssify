@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/refresh</url>
+        <description>Run fetchers</description>
+        <schedule>every 30 minutes</schedule>
+    </cron>
+</cronentries>

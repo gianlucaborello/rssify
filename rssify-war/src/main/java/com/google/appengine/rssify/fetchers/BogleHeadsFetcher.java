@@ -47,9 +47,11 @@ public class BogleHeadsFetcher implements SourceFetcher {
             }
 
             Element article = articles.get(j);
+            int i = article.attr("href").indexOf("&newpost");
+            String link = article.attr("href").substring(0, i);
 
             String body = numComments + " comments";
-            SourceItem sourceItem = new SourceItem(article.attr("href"),
+            SourceItem sourceItem = new SourceItem(link,
                     article.text(), body);
 
             sourceItems.add(sourceItem);

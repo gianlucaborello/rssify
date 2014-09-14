@@ -8,4 +8,12 @@
         <servlet-name>rss</servlet-name>
         <url-pattern>/rss/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>refresh</servlet-name>
+        <servlet-class>com.google.appengine.rssify.servlets.RefreshServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>refresh</servlet-name>
+        <url-pattern>/refresh</url-pattern>
+    </servlet-mapping>
 </web-app>

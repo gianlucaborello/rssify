@@ -11,12 +11,12 @@ import java.util.List;
  * Created by gianluca on 9/13/14.
  */
 public class FeedUtils {
-    public static SyndFeed createFeed(String pathInfo, SourceConfiguration configuration, List<SourceItem> items) {
+    public static SyndFeed createFeed(String sourceConfigurationId, SourceConfiguration configuration, List<SourceItem> items) {
         SyndFeed feed = new SyndFeedImpl();
         feed.setFeedType("rss_2.0");
         feed.setTitle(configuration.getTitle());
         feed.setDescription(configuration.getDescription());
-        feed.setLink("http://vaulted-bus-703.appspot.com/rss" + pathInfo);
+        feed.setLink("http://feeds.feedburner.com" + sourceConfigurationId);
 
         List entries = new ArrayList();
 
