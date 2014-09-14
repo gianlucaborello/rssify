@@ -1,6 +1,8 @@
 rssify
 =============================
 
+http://gianlucaborello.github.io/rssify/
+
 A simple application that I needed to avoid constantly checking my favorite news websites/forums.
 
 It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits an RSS including the items that have more comments than the threshold I choose.
@@ -9,7 +11,7 @@ When paired with feedly and feedburner, I have a consolidated view of everything
 
 The app is hosted on GAE, so in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
 
-Hacker News, by points | Link
+Hacker News (by points) | Link
 ---- | ---- 
 HN items reaching 10 points | [![hn10points](http://feeds.feedburner.com/~fc/hn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10points)
 HN items reaching 50 points | [![hn50points](http://feeds.feedburner.com/~fc/hn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50points)
@@ -21,7 +23,7 @@ Show HN items reaching 10 points | [![showhn10points](http://feeds.feedburner.co
 Show HN items reaching 50 points | [![showhn50points](http://feeds.feedburner.com/~fc/showhn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn50points)
 Show HN items reaching 100 points | [![showhn100points](http://feeds.feedburner.com/~fc/showhn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn100points)
 
-Hacker News, by comments | link
+Hacker News (by comments) | link
 ---- | ---- 
 HN items reaching 10 comments | [![hn10comments](http://feeds.feedburner.com/~fc/hn10comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10comments)
 HN items reaching 50 comments | [![hn50comments](http://feeds.feedburner.com/~fc/hn50comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50comments)
