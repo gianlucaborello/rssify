@@ -1,7 +1,7 @@
 rssify
 =============================
 
-http://gianlucaborello.github.io/rssify/
+http://gianlucaborello.github.io/rssify
 
 A simple application that I needed to avoid constantly checking my favorite news websites/forums.
 
@@ -23,7 +23,7 @@ Show HN items reaching 10 points | [![showhn10points](http://feeds.feedburner.co
 Show HN items reaching 50 points | [![showhn50points](http://feeds.feedburner.com/~fc/showhn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn50points)
 Show HN items reaching 100 points | [![showhn100points](http://feeds.feedburner.com/~fc/showhn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/showhn100points)
 
-Hacker News (by comments) | link
+Hacker News (by comments) | Link
 ---- | ---- 
 HN items reaching 10 comments | [![hn10comments](http://feeds.feedburner.com/~fc/hn10comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10comments)
 HN items reaching 50 comments | [![hn50comments](http://feeds.feedburner.com/~fc/hn50comments?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50comments)
