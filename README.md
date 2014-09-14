@@ -7,7 +7,7 @@ It automatically scrapes (every 30 minutes) various web pages (currently Hacker 
 
 When paired with feedly and feedburner, I have a consolidated view of everything, most background noise is filtered out and if I don't log in for a few days items will still pile up so I don't lose content.
 
-The app is hosted on GAE, so in case you want to use the feeds yourself (please use the feedburner ones so I can keep this running in the free tier) here they are:
+The app is hosted on GAE, so in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
 
 Hacker News, by points | Link
 ---- | ---- 
