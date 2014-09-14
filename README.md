@@ -39,7 +39,7 @@ Bogleheads.org | Link
 ---- | ---- 
 Posts reaching 10 comments | [![bogleheads10](http://feeds.feedburner.com/~fc/bogleheads10?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads10)
 Posts reaching 50 comments | [![bogleheads50](http://feeds.feedburner.com/~fc/bogleheads50?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads50)
-Posts reaching 100 comments) | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
+Posts reaching 100 comments | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
 
 It served as a demo project on using Java on GAE, since I've never done it before. Data is saved by a background worker into the NoSQL Google database, and read from there.
 
