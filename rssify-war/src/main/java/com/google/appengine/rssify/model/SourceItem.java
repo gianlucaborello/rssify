@@ -7,11 +7,13 @@ public class SourceItem {
     private String url;
     private String title;
     private String body;
+    private Long tsMs;
 
-    public SourceItem(String url, String title, String body) {
+    public SourceItem(String url, String title, String body, Long tsMs) {
         this.url = url;
         this.title = title;
         this.body = body;
+        this.tsMs = tsMs;
     }
 
     public String getUrl() {
@@ -38,12 +40,21 @@ public class SourceItem {
         this.body = body;
     }
 
+    public Long getTsMs() {
+        return tsMs;
+    }
+
+    public void setTsMs(Long tsMs) {
+        this.tsMs = tsMs;
+    }
+
     @Override
     public String toString() {
         return "SourceItem{" +
                 "url='" + url + '\'' +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
+                ", tsMs=" + tsMs +
                 '}';
     }
 }

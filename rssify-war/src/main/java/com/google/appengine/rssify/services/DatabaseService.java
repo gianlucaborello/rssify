@@ -35,7 +35,7 @@ public class DatabaseService {
             log.info("Saving item " + item.getUrl());
 
             entity = new Entity(key);
-            entity.setProperty("ts", System.currentTimeMillis());
+            entity.setProperty("ts", item.getTsMs());
             entity.setProperty("title", item.getTitle());
             entity.setProperty("body", item.getBody());
             datastoreService.put(entity);
@@ -66,7 +66,8 @@ public class DatabaseService {
         List<Entity> entities = prepare.asList(FetchOptions.Builder.withLimit(limit));
         List<SourceItem> items = new ArrayList<SourceItem>();
         for (Entity e : entities) {
-            items.add(new SourceItem(e.getKey().getName(), (String) e.getProperty("title"), (String) e.getProperty("body")));
+            items.add(new SourceItem(e.getKey().getName(),
+                    (String) e.getProperty("title"), (String) e.getProperty("body"), (Long) e.getProperty("ts")));
         }
 
         log.info("Returning " + items.size() + " items");

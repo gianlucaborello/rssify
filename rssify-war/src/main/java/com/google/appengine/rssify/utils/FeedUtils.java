@@ -5,6 +5,7 @@ import com.google.appengine.rssify.model.SourceItem;
 import com.sun.syndication.feed.synd.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class FeedUtils {
         feed.setTitle(configuration.getTitle());
         feed.setDescription(configuration.getDescription());
         feed.setLink("http://feeds.feedburner.com" + sourceConfigurationId);
+        feed.setPublishedDate(new Date());
 
         List entries = new ArrayList();
 
@@ -28,6 +30,7 @@ public class FeedUtils {
             description.setType("text/html");
             description.setValue(item.getBody());
             entry.setDescription(description);
+            entry.setPublishedDate(new Date(item.getTsMs()));
             entries.add(entry);
         }
 

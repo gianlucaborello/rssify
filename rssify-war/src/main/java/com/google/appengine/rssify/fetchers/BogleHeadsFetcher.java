@@ -52,7 +52,7 @@ public class BogleHeadsFetcher implements SourceFetcher {
 
             String body = numComments + " comments";
             SourceItem sourceItem = new SourceItem(link,
-                    article.text(), body);
+                    article.text(), body, System.currentTimeMillis());
 
             sourceItems.add(sourceItem);
         }
