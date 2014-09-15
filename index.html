@@ -30,11 +30,11 @@
       <section>
         <p>A simple application that I needed to avoid constantly checking my favorite news websites/forums.</p>
 
-<p>It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits an RSS including the items that have more comments than the threshold I choose.</p>
+<p>It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits various RSS feeds with the items that have a "score" bigger than a set threshold.</p>
 
-<p>When paired with feedly and feedburner, I have a consolidated view of everything, most background noise is filtered out and if I don't log in for a few days items will still pile up so I don't lose content.</p>
+<p>This way I have a consolidated view of everything, background noise is filtered out and I don't risk losing content.</p>
 
-<p>The app is hosted on GAE, so in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):</p>
+<p>The app is hosted on GAE, and in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):</p>
 
 <table>
 <thead><tr>
@@ -141,9 +141,9 @@
 <td><a href="http://feeds.feedburner.com/bogleheads100"><img src="http://feeds.feedburner.com/%7Efc/bogleheads100?bg=99ccff&amp;amp;fg=444444&amp;amp;anim=0" alt="bogleheads100"></a></td>
 </tr>
 </tbody>
-</table><p>It served as a demo project on using Java on GAE, since I've never done it before. Data is saved by a background worker into the NoSQL Google database, and read from there.</p>
+</table><p>It's my first Java on GAE project. Data is saved by a background worker into the NoSQL Google database, and read from there.</p>
 
-<p>I pulled this off in a very short time so there are tons of bugs, but it works well enough for my use case.</p>
+<p>I've done this in a very short amount of time so there are tons of bugs, but it works well enough for my use case.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gianlucaborello">gianlucaborello</a></p>
