@@ -35,7 +35,7 @@ public class RssServlet extends HttpServlet {
             return;
         }
 
-        List<SourceItem> items = DatabaseService.getItems(sourceConfigurationId, 50);
+        List<SourceItem> items = DatabaseService.getItems(sourceConfigurationId, 25);
         SyndFeed feed = FeedUtils.createFeed(sourceConfigurationId, sourceConfiguration, items);
 
         SyndFeedOutput output = new SyndFeedOutput();
