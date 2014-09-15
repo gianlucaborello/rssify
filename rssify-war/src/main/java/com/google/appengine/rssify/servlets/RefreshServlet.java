@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -29,8 +31,14 @@ public class RefreshServlet extends HttpServlet {
         for (Map.Entry<String, SourceConfiguration> entry : Configuration.sourceConfigurations.entrySet()) {
             log.info("Running " + entry.getKey());
             List<SourceItem> items = entry.getValue().getSourceFetcher().fetchItems();
-
             DatabaseService.saveItems(entry.getKey(), items);
+
+            String urls = "http://www.feedburner.com/fb/a/pingSubmit?bloglink=http://feeds.feedburner.com" + entry.getKey();
+            URL url = new URL(urls);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            int responseCode = urlConnection.getResponseCode();
+            log.info("Pinging feedburner returned " + responseCode);
         }
     }
 }
