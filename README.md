@@ -1,15 +1,15 @@
-rssify
+RSSify
 =============================
 
 http://gianlucaborello.github.io/rssify
 
 A simple application that I needed to avoid constantly checking my favorite news websites/forums.
 
-It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits an RSS including the items that have more comments than the threshold I choose.
+It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits various RSS feeds with the items that have a "score" bigger than a set threshold.
 
-When paired with feedly and feedburner, I have a consolidated view of everything, most background noise is filtered out and if I don't log in for a few days items will still pile up so I don't lose content.
+This way I have a consolidated view of everything, background noise is filtered out and I don't risk losing content.
 
-The app is hosted on GAE, so in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
+The app is hosted on GAE, and in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
 
 Hacker News (by points) | Link
 ---- | ---- 
@@ -41,6 +41,6 @@ Posts reaching 10 comments | [![bogleheads10](http://feeds.feedburner.com/~fc/bo
 Posts reaching 50 comments | [![bogleheads50](http://feeds.feedburner.com/~fc/bogleheads50?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads50)
 Posts reaching 100 comments | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
 
-It served as a demo project on using Java on GAE, since I've never done it before. Data is saved by a background worker into the NoSQL Google database, and read from there.
+It's my first Java on GAE project. Data is saved by a background worker into the NoSQL Google database, and read from there.
 
-I pulled this off in a very short time so there are tons of bugs, but it works well enough for my use case.
+I've done this in a very short amount of time so there are tons of bugs, but it works well enough for my use case.
