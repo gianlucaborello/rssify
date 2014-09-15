@@ -56,17 +56,11 @@ public class HNFetcher implements SourceFetcher {
 
         Document doc = Jsoup.connect(url).get();
         Elements articles = doc.select(".title a");
-        Elements comments = doc.select(".subtext a:eq(2)");
-        Elements points = doc.select(".subtext span");
+        Elements subtexts = doc.select(".subtext");
         articles.remove(articles.size() - 1);
 
-        if (articles.size() != comments.size()) {
-            log.severe("Got " + articles.size() + " articles and " + comments.size() + " comments");
-            return null;
-        }
-
-        if (articles.size() != points.size()) {
-            log.severe("Got " + articles.size() + " articles and " + points.size() + " points");
+        if (articles.size() != subtexts.size()) {
+            log.severe("Got " + articles.size() + " articles and " + subtexts.size() + " subtexts");
             return null;
         }
 
@@ -74,13 +68,27 @@ public class HNFetcher implements SourceFetcher {
 
         List<SourceItem> sourceItems = new ArrayList<SourceItem>();
 
-        for (int j = 0; j < comments.size(); ++j) {
-            Element comment = comments.get(j);
-            Element point = points.get(j);
+        for (int j = 0; j < articles.size(); ++j) {
+            Element article = articles.get(j);
+
+            Elements comments = subtexts.get(j).select("a:eq(2)");
+            if (comments.isEmpty()) {
+                log.info("Empty comments for item " + article.attr("href"));
+                continue;
+            }
+            Element comment = comments.get(0);
+
+            Elements points = subtexts.get(j).select("span");
+            if (points.isEmpty()) {
+                log.info("Empty points for item " + article.attr("href"));
+                continue;
+            }
+            Element point = points.get(0);
 
             switch (ranking) {
                 case BY_COMMENTS:
                     if (!comment.text().contains(" ")) {
+                        log.info("No comments for item " + article.attr("href"));
                         continue;
                     }
 
@@ -96,8 +104,6 @@ public class HNFetcher implements SourceFetcher {
                     }
                     break;
             }
-
-            Element article = articles.get(j);
 
             String link = null;
             switch (section) {
