@@ -5,7 +5,7 @@ http://gianlucaborello.github.io/rssify
 
 RSS feeds for Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org.
 
-Content is automatically scraped every 30 minutes. The app is hosted on GAE, and in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
+Content is automatically scraped every 30 minutes. The app is hosted on GAE, and in case you want to use the feeds yourself, here they are:
 
 Hacker News (by points) | Link
 ---- | ---- 
