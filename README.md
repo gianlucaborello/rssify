@@ -33,9 +33,9 @@ Show HN - 100+ comments | [![showhn100comments](http://feeds.feedburner.com/~fc/
 
 Bogleheads.org | Link
 ---- | ---- 
-Posts reaching 10+ comments | [![bogleheads10](http://feeds.feedburner.com/~fc/bogleheads10?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads10)
-Posts reaching 50+ comments | [![bogleheads50](http://feeds.feedburner.com/~fc/bogleheads50?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads50)
-Posts reaching 100+ comments | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
+Posts - 10+ comments | [![bogleheads10](http://feeds.feedburner.com/~fc/bogleheads10?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads10)
+Posts - 50+ comments | [![bogleheads50](http://feeds.feedburner.com/~fc/bogleheads50?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads50)
+Posts - 100+ comments | [![bogleheads100](http://feeds.feedburner.com/~fc/bogleheads100?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/bogleheads100)
 
 It's my first Java on GAE project. Data is saved by a background worker into the NoSQL Google database, and read from there.
 
