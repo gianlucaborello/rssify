@@ -116,7 +116,10 @@ public class HNFetcher implements SourceFetcher {
                     break;
             }
 
-            String body = "<a href=\"http://news.ycombinator.com/" + comment.attr("href") + "\">" + comment.text() + "</a>&nbsp;<br>" + point.text();
+            String body = "<a href=\"" + link + "\">" + link + "</a>&nbsp;<br>" +
+                    "<a href=\"http://news.ycombinator.com/" + comment.attr("href") + "\">" + comment.text() + "</a>&nbsp;<br>"
+                    + point.text();
+
             SourceItem sourceItem = new SourceItem(link,
                     article.text(), body, System.currentTimeMillis());
 
