@@ -3,13 +3,9 @@ RSSify
 
 http://gianlucaborello.github.io/rssify
 
-A simple application that I needed to avoid constantly checking my favorite news websites/forums.
+RSS feeds for Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org.
 
-It automatically scrapes (every 30 minutes) various web pages (currently Hacker News, Ask Hacker News, Show Hacker News and Bogleheads.org) and emits various RSS feeds with the items that have a "score" bigger than a set threshold.
-
-This way I have a consolidated view of everything, background noise is filtered out and I don't risk losing content.
-
-The app is hosted on GAE, and in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
+Content is automatically scraped every 30 minutes. The app is hosted on GAE, and in case you want to use the feeds yourself, here they are (please use the feedburner ones so I can keep this running in the free tier):
 
 Hacker News (by points) | Link
 ---- | ---- 
