@@ -12,6 +12,8 @@ Hacker News (by points) | Link
 HN - 10+ points | [![hn10points](http://feeds.feedburner.com/~fc/hn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn10points)
 HN - 50+ points | [![hn50points](http://feeds.feedburner.com/~fc/hn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn50points)
 HN - 100+ points | [![hn100points](http://feeds.feedburner.com/~fc/hn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn100points)
+HN - 250+ points | [![hn250points](http://feeds.feedburner.com/~fc/hn250points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn250points)
+HN - 500+ points | [![hn500points](http://feeds.feedburner.com/~fc/hn500points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/hn500points)
 Ask HN - 10+ points | [![askhn10points](http://feeds.feedburner.com/~fc/askhn10points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn10points)
 Ask HN - 50+ points | [![askhn50points](http://feeds.feedburner.com/~fc/askhn50points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn50points)
 Ask HN - 100+ points | [![askhn100points](http://feeds.feedburner.com/~fc/askhn100points?bg=99ccff&amp;fg=444444&amp;anim=0)](http://feeds.feedburner.com/askhn100points)

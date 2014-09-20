@@ -36,8 +36,8 @@ public class DatabaseService {
 
             entity = new Entity(key);
             entity.setProperty("ts", item.getTsMs());
-            entity.setProperty("title", item.getTitle());
-            entity.setProperty("body", item.getBody());
+            entity.setProperty("title", new Text(item.getTitle()));
+            entity.setProperty("body", new Text(item.getBody()));
             datastoreService.put(entity);
         }
 
@@ -67,7 +67,9 @@ public class DatabaseService {
         List<SourceItem> items = new ArrayList<SourceItem>();
         for (Entity e : entities) {
             items.add(new SourceItem(e.getKey().getName(),
-                    (String) e.getProperty("title"), (String) e.getProperty("body"), (Long) e.getProperty("ts")));
+                    ((Text) e.getProperty("title")).getValue(),
+                    ((Text) e.getProperty("body")).getValue(),
+                    (Long) e.getProperty("ts")));
         }
 
         log.info("Returning " + items.size() + " items");

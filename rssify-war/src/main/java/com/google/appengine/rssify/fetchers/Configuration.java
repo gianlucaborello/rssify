@@ -26,6 +26,8 @@ public class Configuration {
         put("/hn10points", new SourceConfiguration("HN - 10 points", "Hacker News items with at least 10 points", new HNFetcher(10, HNFetcher.Section.FRONT, HNFetcher.Ranking.BY_POINTS)));
         put("/hn50points", new SourceConfiguration("HN - 50 points", "Hacker News items with at least 50 points", new HNFetcher(50, HNFetcher.Section.FRONT, HNFetcher.Ranking.BY_POINTS)));
         put("/hn100points", new SourceConfiguration("HN - 100 points", "Hacker News items with at least 100 points", new HNFetcher(100, HNFetcher.Section.FRONT, HNFetcher.Ranking.BY_POINTS)));
+        put("/hn250points", new SourceConfiguration("HN - 250 points", "Hacker News items with at least 250 points", new HNFetcher(250, HNFetcher.Section.FRONT, HNFetcher.Ranking.BY_POINTS)));
+        put("/hn500points", new SourceConfiguration("HN - 500 points", "Hacker News items with at least 500 points", new HNFetcher(500, HNFetcher.Section.FRONT, HNFetcher.Ranking.BY_POINTS)));
 
         put("/askhn10points", new SourceConfiguration("Ask HN - 10 points", "Ask Hacker News items with at least 10 points", new HNFetcher(10, HNFetcher.Section.ASK, HNFetcher.Ranking.BY_POINTS)));
         put("/askhn50points", new SourceConfiguration("Ask HN - 50 points", "Ask Hacker News items with at least 50 points", new HNFetcher(50, HNFetcher.Section.ASK, HNFetcher.Ranking.BY_POINTS)));
