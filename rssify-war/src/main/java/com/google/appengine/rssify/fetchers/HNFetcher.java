@@ -108,6 +108,9 @@ public class HNFetcher implements SourceFetcher {
             String link = null;
             switch (section) {
                 case FRONT:
+                    if (article.attr("href").indexOf("item") == 0) {
+                        link = "http://news.ycombinator.com/" + article.attr("href");
+                    }
                 case SHOW:
                     link = article.attr("href");
                     break;
