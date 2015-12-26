@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 public class DatabaseService {
     private static final Logger log = Logger.getLogger(DatabaseService.class.getName());
 
-    // Delete entries older than one month
-    private static final Long ttlMs = 30 * 24 * 3600 * 1000L;
+    // Delete entries older than one week
+    private static final Long ttlMs = 7 * 24 * 3600 * 1000L;
 
     public static void saveItems(String sourceConfiguration, List<SourceItem> items) {
         DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
