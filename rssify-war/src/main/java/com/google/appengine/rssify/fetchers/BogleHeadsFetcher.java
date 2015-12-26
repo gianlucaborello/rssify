@@ -28,8 +28,8 @@ public class BogleHeadsFetcher implements SourceFetcher {
         String url = "http://www.bogleheads.org/";
 
         Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select("#table_content a[href*=viewtopic]:lt(1)");
-        Elements comments = doc.select("#table_content td[align*=right]:lt(1)");
+        Elements articles = doc.select("#posts_table a[href*=viewtopic]:lt(1)");
+        Elements comments = doc.select("#posts_table td[style*=text-align:right;]:lt(1)");
         if (articles.size() != comments.size()) {
             log.severe("Got " + articles.size() + " articles and " + comments.size() + " comments");
             return null;
