@@ -55,7 +55,7 @@ public class HNFetcher implements SourceFetcher {
         }
 
         Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select(".title a");
+        Elements articles = doc.select(".title > a");
         Elements subtexts = doc.select(".subtext");
         articles.remove(articles.size() - 1);
 
@@ -71,7 +71,7 @@ public class HNFetcher implements SourceFetcher {
         for (int j = 0; j < articles.size(); ++j) {
             Element article = articles.get(j);
 
-            Elements comments = subtexts.get(j).select("a:eq(2)");
+            Elements comments = subtexts.get(j).select("a:eq(3)");
             if (comments.isEmpty()) {
                 log.info("Empty comments for item " + article.attr("href"));
                 continue;
