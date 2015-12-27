@@ -54,7 +54,7 @@ public class HNFetcher implements SourceFetcher {
                 break;
         }
 
-        Document doc = Jsoup.connect(url).get();
+        Document doc = Jsoup.connect(url).timeout(0).get();
         Elements articles = doc.select(".title > a");
         Elements subtexts = doc.select(".subtext");
         articles.remove(articles.size() - 1);
