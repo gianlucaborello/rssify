@@ -28,7 +28,7 @@ public class BogleHeadsFetcher implements SourceFetcher {
         String url = "http://www.bogleheads.org/";
 
         Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select("#posts_table a[href*=viewtopic]:lt(1)");
+        Elements articles = doc.select("#posts_table td:has(a[href*=viewtopic])");
         Elements comments = doc.select("#posts_table td[style*=text-align:right;]:lt(1)");
         if (articles.size() != comments.size()) {
             log.severe("Got " + articles.size() + " articles and " + comments.size() + " comments");
@@ -47,12 +47,23 @@ public class BogleHeadsFetcher implements SourceFetcher {
             }
 
             Element article = articles.get(j);
-            int i = article.attr("href").indexOf("&newpost");
-            String link = article.attr("href").substring(0, i);
+            Element firstPage = article.children().first();
+            Element lastPage = article.children().last();
+            String link = lastPage.attr("href");
+            int newpostIdx = link.indexOf("&newpost=");
+            int startIdx = link.indexOf("&start=");
+            String page = "0";
+            if (startIdx != -1) {
+                page = lastPage.text();
+                String start = link.substring(startIdx);
+                link = link.substring(0, newpostIdx) + start;
+            } else {
+                link = link.substring(0, newpostIdx);
+            }
 
-            String body = numComments + " comments";
+            String body = numComments + " comments, page " + page;
             SourceItem sourceItem = new SourceItem(link,
-                    article.text(), body, System.currentTimeMillis());
+                    firstPage.text(), body, System.currentTimeMillis());
 
             sourceItems.add(sourceItem);
         }
