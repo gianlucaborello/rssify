@@ -25,10 +25,10 @@ public class RefreshServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-         if (req.getHeader("X-AppEngine-Cron") == null) {
-             resp.sendError(HttpServletResponse.SC_FORBIDDEN);
-             return;
-         }
+        if (req.getHeader("X-AppEngine-Cron") == null) {
+            resp.sendError(HttpServletResponse.SC_FORBIDDEN);
+            return;
+        }
 
         for (Map.Entry<String, SourceConfiguration> entry : Configuration.sourceConfigurations.entrySet()) {
             log.info("Running " + entry.getKey());
