@@ -1,6 +1,5 @@
 package com.google.appengine.rssify.servlets;
 
-import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.rssify.fetchers.Configuration;
 import com.google.appengine.rssify.model.SourceConfiguration;
 import com.google.appengine.rssify.model.SourceItem;
@@ -10,6 +9,7 @@ import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 /**
  * Created by gianluca on 9/13/14.
  */
+@WebServlet(name = "rss", value = "/rss/*")
 public class RssServlet extends HttpServlet {
     private static final Logger log = Logger.getLogger(RssServlet.class.getName());
 

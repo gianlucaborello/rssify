@@ -20,7 +20,7 @@ public class FeedUtils {
         feed.setLink("http://feeds.feedburner.com" + sourceConfigurationId);
         feed.setPublishedDate(new Date());
 
-        List entries = new ArrayList();
+        List<SyndEntry> entries = new ArrayList<>();
 
         for (SourceItem item : items) {
             SyndEntry entry = new SyndEntryImpl();

@@ -17,9 +17,12 @@ import java.util.logging.Logger;
  */
 public class BogleHeadsFetcher implements SourceFetcher {
     private static final Logger log = Logger.getLogger(HNFetcher.class.getName());
+
+    private static final int PAGE_SIZE = 50;
+
     private int minComments;
 
-    public BogleHeadsFetcher(int minComments) {
+    BogleHeadsFetcher(int minComments) {
         this.minComments = minComments;
     }
 
@@ -28,7 +31,7 @@ public class BogleHeadsFetcher implements SourceFetcher {
         String url = "http://www.bogleheads.org/";
 
         Document doc = Jsoup.connect(url).get();
-        Elements articles = doc.select("#posts_table td:has(a[href*=viewtopic])");
+        Elements articles = doc.select("#posts_table td:has(a[href*=viewtopic]):lt(3)");
         Elements comments = doc.select("#posts_table td[style*=text-align:right;]:lt(1)");
         if (articles.size() != comments.size()) {
             log.severe("Got " + articles.size() + " articles and " + comments.size() + " comments");
@@ -37,7 +40,7 @@ public class BogleHeadsFetcher implements SourceFetcher {
 
         log.info("Got " + articles.size() + " items ");
 
-        List<SourceItem> sourceItems = new ArrayList<SourceItem>();
+        List<SourceItem> sourceItems = new ArrayList<>();
 
         for (int j = 0; j < comments.size(); ++j) {
             Element comment = comments.get(j);
@@ -51,17 +54,13 @@ public class BogleHeadsFetcher implements SourceFetcher {
             Element lastPage = article.children().last();
             String link = lastPage.attr("href");
             int newpostIdx = link.indexOf("&newpost=");
-            int startIdx = link.indexOf("&start=");
-            String page = "0";
-            if (startIdx != -1) {
-                page = lastPage.text();
-                String start = link.substring(startIdx);
-                link = link.substring(0, newpostIdx) + start;
-            } else {
-                link = link.substring(0, newpostIdx);
-            }
+            link = link.substring(0, newpostIdx);
 
-            String body = numComments + " comments, page " + page;
+            int start = Math.max(numComments / PAGE_SIZE - 1, 0);
+
+            link += "&start=" + start;
+
+            String body = numComments + " comments";
             SourceItem sourceItem = new SourceItem(link,
                     firstPage.text(), body, System.currentTimeMillis());
 
