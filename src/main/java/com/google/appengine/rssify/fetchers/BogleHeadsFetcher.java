@@ -56,9 +56,9 @@ public class BogleHeadsFetcher implements SourceFetcher {
             int newpostIdx = link.indexOf("&newpost=");
             link = link.substring(0, newpostIdx);
 
-            int start = Math.max(numComments / PAGE_SIZE - 1, 0);
+            int page = numComments / PAGE_SIZE;
 
-            link += "&start=" + start;
+            link += "#page=" + page;
 
             String body = numComments + " comments";
             SourceItem sourceItem = new SourceItem(link,
