@@ -1,2 +1,4 @@
-/target/
-/.idea/
+bin/
+target/
+.idea/
+.vscode/
